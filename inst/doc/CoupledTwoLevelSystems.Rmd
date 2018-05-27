@@ -1,0 +1,46 @@
+---
+title: "Entanglement between Two Coupled Two-Level Systems"
+author: "Kwan-yuet Ho, Ph.D."
+date: "April 9, 2018"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Entanglement between Two Coupled Two-Level Systems}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r loading library, include=FALSE}
+library(RQEntangle)
+```
+
+## Quantum Entanglement of Discrete Systems
+
+Define the coupled two-level systems:
+
+```{r singlet}
+singlet<- matrix(c(0, sqrt(0.7), sqrt(0.3), 0), byrow = TRUE, nrow = 2)
+```
+
+## Schmidt Decompostions
+
+Then run the Schmidt decompotions:
+
+```{r run_decompose, echo=FALSE}
+modes<- schmidt.decompose(singlet)
+```
+
+We can easily print the modes:
+
+```{r display_modes}
+modes
+```
+
+And their corresponding entanglement entropy:
+
+```{r entropy}
+entanglement.entropy(modes)
+```
